@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/{cadena}', function ($cadena = null) {
+
+    $resultado = 'No conocido';
+
+    switch($cadena) {
+        case 'hola-mundo':
+            $resultado = 'Hola usuario';
+            break;
+        case 'hola-laravel':
+            $resultado = 'Hola! estudiante de laravel';
+            break;
+        default:
+        $resultado = 'Perdona, no entiendo tu saludo';
+        break;
+    }
+
+    return view('welcome', [
+       'cadena' => $resultado
+    ]);
 });

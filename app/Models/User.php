@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**  Manejar usuarios para hacer:
+     * registros de usuarios
+     * autenticaciones,
+     * reenvio de cntrasenas
+     * relaciones con otras tablas
+     * modelos de base de datos
+     * */
 }
