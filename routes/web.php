@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('/', 'pagina');
+
+
 Route::get('/{cadena}', function ($cadena = null) {
 
     $resultado = 'No conocido';

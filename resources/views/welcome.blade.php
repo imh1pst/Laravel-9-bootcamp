@@ -1,1 +1,1 @@
-{{ $cadena }}
+{{ env('APP_NAME') }}
