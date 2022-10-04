@@ -11,9 +11,16 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function ExampleFunction(){
-        $publickey = config('parameters.key');
-        config('parameters.key', 'my-other-kay');
-        $publickey = config('parameters.key');
-    }
+    /**
+     * public function ExampleFunction(){
+     * $publickey = config('parameters.key');
+     * config('parameters.key', 'my-other-kay');
+     * $publickey = config('parameters.key');
+
+     * $myVariable = env('APP_NAME','No value'); //Laravel 9
+     * }
+     */
+
+
+
 }
