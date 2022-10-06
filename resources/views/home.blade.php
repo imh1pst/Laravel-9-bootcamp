@@ -7,6 +7,8 @@
     <title>{{ env('APP_NAME') }}</title>
 </head>
 <body>
-    <h1> Pagina de inicio Laravel 9 </h1>
+    <h1> Pagina de home</h1>
+    <a href="/contact">Contacto</a>
+
 </body>
 </html>

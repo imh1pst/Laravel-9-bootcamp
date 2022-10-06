@@ -7,7 +7,18 @@ use Illuminate\Http\Request;
 
 class homeController extends Controller
 {
-    public function index(Request $request){
-        return new Response("Hola Mundo");
+    public function contactPage(){
+        return view('contact');
     }
+
+    public function processContact(Request $request){
+        echo "Formulario completado";
+        die();
+    }
+
+    public function processContactPut(Request $request){
+        echo "Formulario completado con el method PUT";
+        die();
+    }
+
 }
