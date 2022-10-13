@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\homeController;
-
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
-
+use Faker\Core\Uuid;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,8 +55,71 @@ Route::match(['GET','POST'], '/category/{slug?}', function($slug = 'code=laravel
 */
 
 
-//VARIABLES DE RUTAS EN CONTROLADOR
 
+//VARIABLES DE RUTAS EN CONTROLADOR
+/*
+Route::get('/{category} / {uuid} ', function($category = 'a', $slug = 'post'){
+    echo $category . '<br />' . $slug;
+})->whereAlpha('category')->whereAlphaNumeric('slug')->whereUuid('uuid');
+*/
+
+/*
+Route::get('/my-controller/{id}', [homeController::class, 'homeController']);
+*/
+
+
+//VARIABLES CON CADENA DE TEXTO
+//Declarar diferentes condiciones para que cada una de las variables cumpla una condicion completa
+
+/*
+Route::get('/{category}/{slug}', function($category = 'a', $slug = 'post'){
+    echo $category . '<br />' . $slug;
+})-> where (
+    'cadena', '[0-9]+'
+);
+*/
+
+//Forma de poner condiciones dentro de las rutas para laravel
+/*
+Route::get('/{category}/{slug}', function($category = 'a', $slug = 'post'){
+    echo $category . '<br />' . $slug;
+})-> where (
+    'catedory', '[0-9]+'
+    )->where (
+        'slug', '[\w-]+';
+    );
+*/
+
+//Segunda opcion
+/*
+Route::get('/{category}/{slug}', function($category = 'a', $slug = 'post'){
+    echo $category . '<br />' . $slug;
+})-> where ([
+    'catedory' => '[0-9]+',
+    'slug' => '[\w-]+';
+]);
+*/
+
+//Variables en las RUTAS introducciendo el metodo = Middleware
+Route::get('/my-second-ruta', function(){
+    echo "Hola";
+    //return redirect()->route('myindex')
+})->name('myindex');
+
+Route::view('/my-routename-ex','routename');
+
+
+//Para casos concretos de URL
+/*
+Route::get('/{category}/{slug}', function($category = 'a', $slug = 'post'){
+    echo $category . '<br />' . $slug;
+})-> whereAlpha ([
+    ('catedory') -> whereAlphaNumeric
+    ('slug') -> whereUuid('uuid');
+]);
+*/
+
+Route::get('/my-ruta/{id}', [homeController::class, 'myRutaFunction']);
 
 //Rutas del CRUD => GET, POST, UPDATE(PUT), DELETE
 Route::view('/','home');
